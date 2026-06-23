@@ -3,7 +3,7 @@
 Painel para acompanhar eventos, controlar o acesso de participantes (check-in/checkout)
 e visualizar métricas em um dashboard. Desenvolvido como teste técnico de Front-End.
 
-🔗 **Demo:** _adicione aqui a URL do deploy (Vercel)_
+🔗 **Demo:** https://painel-gestao-eventos.vercel.app
 
 ---
 
