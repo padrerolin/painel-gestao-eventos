@@ -14,6 +14,18 @@ import type { EventStatus } from "@/lib/types";
 export type StatusFilter = EventStatus | "all";
 export type SortOrder = "date-desc" | "date-asc";
 
+const STATUS_LABELS: Record<StatusFilter, string> = {
+  all: "Todos os status",
+  active: "Ativos",
+  closed: "Encerrados",
+  cancelled: "Cancelados",
+};
+
+const SORT_LABELS: Record<SortOrder, string> = {
+  "date-desc": "Data (mais recentes)",
+  "date-asc": "Data (mais antigos)",
+};
+
 interface EventFiltersProps {
   search: string;
   onSearchChange: (value: string) => void;
@@ -46,6 +58,7 @@ export function EventFilters({
       </div>
 
       <Select
+        items={STATUS_LABELS}
         value={status}
         onValueChange={(v) => onStatusChange(v as StatusFilter)}
       >
@@ -60,7 +73,11 @@ export function EventFilters({
         </SelectContent>
       </Select>
 
-      <Select value={sort} onValueChange={(v) => onSortChange(v as SortOrder)}>
+      <Select
+        items={SORT_LABELS}
+        value={sort}
+        onValueChange={(v) => onSortChange(v as SortOrder)}
+      >
         <SelectTrigger className="sm:w-48" aria-label="Ordenar por data">
           <SelectValue placeholder="Ordenar" />
         </SelectTrigger>
